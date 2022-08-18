@@ -18,7 +18,7 @@ import com.microservice.commons.user.entity.Users;
 import com.microservice.oauth.client.UserFeignClient;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService, IUUserService {
 
 	@Autowired
 	private UserFeignClient client;
@@ -41,6 +41,12 @@ public class UserService implements UserDetailsService {
 		log.info("User authenticate: " + username);
 
 		return new User(users.getName(), users.getPassword(), users.getIsActive(), true, true, true, authorities);
+	}
+
+	@Override
+	public Users findByUsername(String username) {
+		
+		return client.findByUsername(username);
 	}
 
 }

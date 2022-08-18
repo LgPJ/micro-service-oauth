@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
